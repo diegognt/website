@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
+  "rules": {
+    "color-no-hex": true,
+    "color-function-notation": "noderm",
+    "function-allowed-list": ["hwb", "hsl", "clamp", "var"],
+    "hue-degree-notation": "number"
+  }
+}
