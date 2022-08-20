@@ -1,0 +1,9 @@
+@use "sass:map";
+
+$break-points: (
+  "small": 36rem,
+  "medium": 48rem,
+  "large": 62rem,
+  "extra-large": 75rem,
+  "extra-extra-large": 90rem,
+);

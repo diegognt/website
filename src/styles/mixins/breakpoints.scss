@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as *;
+
+@mixin from($brakepoint-name) {
+  @media screen and (min-width: #{map.get($break-points, $brakepoint-name)}) {
+    @content;
+  }
+}
