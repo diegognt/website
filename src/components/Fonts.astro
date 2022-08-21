@@ -1,0 +1,66 @@
+<style is:global>
+  /* Font font-weight */
+  :root {
+    --font-weight-400: 400;
+    --font-weight-700: 700;
+
+  }
+
+  @font-face {
+    font-family: 'CousineRegular';
+    src: url('/fonts/Cousine-Regular.woff2') format('woff2'),
+      url('/fonts/Cousine-Regular.woff') format('woff'),
+      url('/fonts/Cousine-Regular.ttf') format('ttf');
+    font-weight: var(--font-weight-400);
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CousineItalic';
+    src: url('/fonts/Cousine-Italic.woff2') format('woff2'),
+      url('/fonts/Cousine-Italic.woff') format('woff'),
+      url('/fonts/Cousine-Italic.ttf') format('ttf');
+    font-weight: var(--font-weight-400);
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CousineBold';
+    src: url('/fonts/Cousine-Bold.woff2') format('woff2'),
+      url('/fonts/Cousine-Bold.woff') format('woff'),
+      url('/fonts/Cousine-Bold.ttf') format('ttf');
+    font-weight: var(--font-weight-700);
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'CousineBoldItalic';
+    src: url('/fonts/Cousine-BoldItalic.woff2') format('woff2'),
+      url('/fonts/Cousine-BoldItalic.woff') format('woff'),
+      url('/fonts/Cousine-BoldItalic.ttf') format('ttf');
+    font-weight: var(--font-weight-700);
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    /* Font family */
+    --font-family-fallback: system-ui;
+    --font-family-regular: 'CousineRegular', var(--font-family-fallback);
+    --font-family-italic: 'CousineItalic', var(--font-family-fallback);
+    --font-family-bold: 'CousineBold', var(--font-family-fallback);
+    --font-family-bold-italic: 'CousineBoldItalic', var(--font-family-fallback);
+
+    /* Font size */
+    --font-size-small: clamp(0.8rem, -0.004vw + 0.801rem, 0.797rem);
+    --font-size-base: clamp(1rem, 0.093vw + 0.979rem, 1.063rem);
+    --font-size-medium: clamp(1.25rem, 0.246vw + 1.195rem, 1.416rem);
+    --font-size-large: clamp(1.563rem, 0.482vw + 1.454rem, 2.888rem);
+    --font-size-extra-large: clamp(1.953rem, 0.835vw + 1.765rem, 3.517rem);
+    --font-size-xxl: clamp(2.441rem, 1.353vw + 2.137rem, 4.355rem);
+    --font-size-hero: clamp(3.052rem, 2.104vw + 2.578rem, 5.472rem);
+  }
+</style>
