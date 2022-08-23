@@ -1,8 +1,19 @@
 ---
 import Base from '../layouts/base/base.astro';
----
 
-<Base title="Diego Navarro">
-  <h1>Diego Navarro</h1>
-  <p>I'm a software engineer.</p>
+const data = {
+  head: {
+    metadata: {
+      title: 'Diego Navarro',
+      description: 'The page description'
+    },
+    links: {
+      canonical: ''
+    }
+  }
+};
+---
+<Base data={data}>
+<h1>Diego Navarro</h1>
+<p>I'm a oftware engineer.</p>
 </Base>
