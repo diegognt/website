@@ -5,7 +5,7 @@
   ],
   "rules": {
     "color-no-hex": true,
-    "color-function-notation": "noderm",
+    "color-function-notation": "modern",
     "function-allowed-list": ["hwb", "hsl", "hsla", "clamp", "var", "repeat"],
     "hue-degree-notation": "number"
   }
