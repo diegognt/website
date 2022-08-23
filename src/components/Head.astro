@@ -1,0 +1,32 @@
+---
+import Colors from './Colors.astro';
+import Fonts from './Fonts.astro';
+import Containers from './Containers.astro';
+
+export interface PageHead {
+  data : {
+    metadata: {
+      title: string,
+      description: string
+    },
+    links : {
+      canonical: string
+    }
+  }
+};
+
+const {data} = Astro.props as PageHead;
+---
+<head>
+  <meta charset="UTF-8" />
+  <title>{data.metadata.title}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content={data.metadata.description} />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href={data.links.canonical} />
+  <meta name="generator" content={Astro.generator} />
+  <Colors />
+  <Fonts />
+  <Containers />
+</head>
