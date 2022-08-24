@@ -1,22 +1,23 @@
 ---
 import './style.scss';
-import Head from "../../components/Head.astro";
-
+import Head from '../../components/Head.astro';
 
 export interface Page {
   data: {
     head: {
-      metadata: Object,
-      links: Object
-    }
-  }
+      metadata: Object;
+      links: Object;
+    };
+  };
 }
 
 const {data} = Astro.props as Page;
 ---
+
 <!DOCTYPE html>
 <html lang="en">
   <Head data={data.head} />
+
   <body>
     <main class="container">
       <slot />
