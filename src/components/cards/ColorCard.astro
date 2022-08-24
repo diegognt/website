@@ -1,0 +1,74 @@
+---
+interface Props {
+  name: string
+};
+const {name} = Astro.props as Props;
+---
+<div class={`card card--color card--${name}`}>
+  <div class="card__solid"></div>
+  <p class="card__label">{name}</p>
+</div>
+
+<style lang="scss">
+  .card {
+    $this: &;
+
+    &--color {
+      border: 1px solid grey;
+      border-radius: .2rem;
+      height: auto;
+      overflow: hidden;
+      width: 200px;
+    }
+
+    &__solid {
+      height: 200px;
+      width: 100%;
+
+      #{$this}--orange & {
+        background-color: var(--orange);
+      }
+
+      #{$this}--red & {
+        background-color: var(--red);
+      }
+
+      #{$this}--green & {
+        background-color: var(--green);
+      }
+
+      #{$this}--blue & {
+        background-color: var(--blue);
+      }
+
+      #{$this}--white & {
+        background-color: var(--white);
+      }
+
+      #{$this}--black & {
+        background-color: var(--black);
+      }
+
+      #{$this}--primary & {
+        background-color: var(--primary);
+      }
+
+      #{$this}--secondary & {
+        background-color: var(--secondary);
+      }
+
+      #{$this}--tertiary & {
+        background-color: var(--tertiary);
+      }
+
+      #{$this}--quaternary & {
+        background-color: var(--quaternary);
+      }
+    }
+
+    &__label {
+      margin: 0;
+      padding: .45rem;
+    }
+  }
+</style>
