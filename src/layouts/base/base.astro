@@ -1,26 +1,23 @@
 ---
 import './style.scss';
 import Head from '../../components/Head.astro';
+import PageSection from '../commons/PageSection.astro';
+import type {Page, Section} from '../../base/interfaces';
 
-export interface Page {
-  data: {
-    head: {
-      metadata: Object;
-      links: Object;
-    };
-  };
-}
-
-const {data} = Astro.props as Page;
+const {head, sections} = Astro.props as Page;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <Head data={data.head} />
+  <Head data={head} />
 
   <body>
-    <main class="container">
-      <slot />
+    <main>
+      {
+        sections.map((section: Section) => (
+          <PageSection components={section.components} />
+        ))
+      }
     </main>
   </body>
 </html>

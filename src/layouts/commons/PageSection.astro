@@ -1,0 +1,19 @@
+---
+import type {Component, Section} from '../../base/interfaces';
+import Hero from '../../components/Hero.astro';
+
+const {components} = Astro.props as Section;
+---
+
+{
+  components.map(
+    (component: Component) =>
+      component.config.component === 'Hero' && (
+        <Hero
+          data={component.data}
+          config={component.config}
+          ui={component.ui}
+        />
+      )
+  )
+}

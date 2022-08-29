@@ -1,0 +1,14 @@
+---
+import type {Component} from '../base/interfaces';
+
+const {data, config, ui} = Astro.props as Component;
+const component = config.component;
+---
+
+<section class={`${component} ${component}--${ui.layout}`}>
+  <div class="container">
+    {data.eyebrow && <h2 class="eyebrow">{data.eyebrow}</h2>}
+    <h1 class="heading">{data.heading}</h1>
+    {data.bodies && data.bodies.map(body => <p class="body">{body}</p>)}
+  </div>
+</section>

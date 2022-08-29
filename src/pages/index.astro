@@ -1,7 +1,8 @@
 ---
+import type {Page} from '../base/interfaces';
 import Base from '../layouts/base/base.astro';
 
-const data = {
+const data: Page = {
   head: {
     metadata: {
       title: 'Diego Navarro',
@@ -11,10 +12,24 @@ const data = {
       canonical: '',
     },
   },
+  sections: [
+    {
+      components: [
+        {
+          config: {component: 'Hero'},
+          data: {
+            eyebrow: 'Hi, I am',
+            heading: 'Diego Navarro',
+            bodies: ['A software engineer'],
+          },
+          ui: {
+            layout: 'Card',
+          },
+        },
+      ],
+    },
+  ],
 };
 ---
 
-<Base data={data}>
-  <h1>Diego Navarro</h1>
-  <p>I'm a oftware engineer.</p>
-</Base>
+<Base head={data.head} sections={data.sections} />
