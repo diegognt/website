@@ -1,5 +1,6 @@
 ---
 import type {Component} from '../base/interfaces';
+import Asset from './assets/Asset.astro';
 
 const {data, config, ui} = Astro.props as Component;
 const component = config.component;
@@ -12,7 +13,13 @@ const component = config.component;
       <h1 class="heading">{data.heading}</h1>
       {data.bodies && data.bodies.map(body => <p class="body">{body}</p>)}
     </div>
-    <div class={`${component}__asset`}></div>
+    <div class={`${component}__asset`}>
+      <Asset
+      type={data.asset.type}
+      sources={data.asset.sources}
+      alternativeText={data.asset.alternativeText}
+      />
+    </div>
   </div>
 </section>
 

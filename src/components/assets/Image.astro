@@ -1,0 +1,19 @@
+---
+import type {AssetSource, ImageAsset} from '../../base/interfaces';
+
+const {sources, alternativeText} = Astro.props as ImageAsset;
+const sizesMap = {
+  small: '(max-width: 48rem)',
+  medium: '(min-width: 48rem) and (max-width: 75rem)',
+  large: '(min-width: 75rem)',
+};
+---
+
+<img
+  srcset={sources.map(
+    (source: AssetSource) => `${source.path} ${source.width}w`
+  )}
+  sizes={sources.map((source: AssetSource, i: number) => `${sizesMap[source.breakpoint]} ${source.width}px`)}
+  alt={alternativeText}
+/>
+

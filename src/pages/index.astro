@@ -20,10 +20,32 @@ const data: Page = {
           data: {
             eyebrow: 'Hi, I am',
             heading: 'Diego Navarro',
-            bodies: ['A software engineer'],
+            bodies: ['A Software Engineer'],
+            asset: {
+              type: 'Image',
+              sources: [
+                {
+                  path: '/assets/avatar-small.svg',
+                  width: 315,
+                  breakpoint: 'small',
+                },
+                {
+                  path: '/assets/avatar-medium.svg',
+                  width: 420,
+                  breakpoint: 'medium',
+                },
+                {
+                  path: '/assets/avatar-large.svg',
+                  width: 546,
+                  breakpoint: 'large',
+                },
+              ],
+              alternativeText:
+                'This is an illustration with an engineer working on a computer.',
+            },
           },
           ui: {
-            layout: 'Card',
+            layout: 'Default',
           },
         },
       ],
