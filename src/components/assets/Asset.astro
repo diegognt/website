@@ -1,0 +1,12 @@
+---
+import type {Asset} from '../../base/interfaces';
+import Image from './Image.astro';
+
+const {type, sources, alternativeText} = Astro.props as Asset;
+---
+
+{
+  type === 'Image' && (
+    <Image sources={sources} alternativeText={alternativeText} />
+  )
+}

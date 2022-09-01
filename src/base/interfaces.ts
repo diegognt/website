@@ -1,5 +1,22 @@
 type ComponentName = 'Hero';
 type UILayout = 'Card' | 'Center' | 'Default';
+export type AssetSource = {
+  path: string;
+  width: number;
+  aspectRatio?: '1:1' | '3:4' | '4:3';
+  breakpoint: 'small' | 'medium' | 'large';
+};
+
+export type ImageAsset = {
+  sources: AssetSource[];
+  alternativeText?: string;
+};
+
+export type Asset = {
+  type: 'Image' | 'Icon';
+  sources: AssetSource[];
+  alternativeText?: string;
+};
 
 export type Section = {
   components: Component[];
@@ -22,6 +39,7 @@ export type BaseData = {
   eyebrow?: string;
   bodies?: string[];
   heading: string;
+  asset: Asset;
 };
 
 export interface Page {
