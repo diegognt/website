@@ -7,8 +7,99 @@ const component = config.component;
 
 <section class={`${component} ${component}--${ui.layout}`}>
   <div class="container">
-    {data.eyebrow && <h2 class="eyebrow">{data.eyebrow}</h2>}
-    <h1 class="heading">{data.heading}</h1>
-    {data.bodies && data.bodies.map(body => <p class="body">{body}</p>)}
+    <div class={`${component}__copy`}>
+      {data.eyebrow && <h2 class="eyebrow">{data.eyebrow}</h2>}
+      <h1 class="heading">{data.heading}</h1>
+      {data.bodies && data.bodies.map(body => <p class="body">{body}</p>)}
+    </div>
+    <div class={`${component}__asset`}></div>
   </div>
 </section>
+
+<style lang="scss">
+  @use '../styles/mixins/breakpoints' as *;
+
+  .Hero {
+    $this: &;
+
+    background-color: var(--white);
+    color: var(--black);
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 14vh;
+
+    %horizontal-layout {
+    }
+    .container {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 4rem;
+      justify-items: center;
+    }
+    .eyebrow {
+      font-weight: var(--font-weight-300);
+      font-size: var(--font-size-medium);
+      margin-bottom: 0.85rem;
+    }
+    .heading {
+      font-weight: var(--font-weight-700);
+      font-size: var(--font-size-hero);
+      line-height: var(--font-size-hero);
+      letter-spacing: -0.06rem;
+      margin-bottom: 0.8rem;
+    }
+    .body {
+      color: var(--tertiary-2);
+      font-weight: var(--font-weight-600);
+      font-size: var(--font-size-large);
+      font-style: italic;
+      letter-spacing: -0.05rem;
+
+      &::first-letter {
+        color: var(--black);
+        font-style: normal;
+      }
+    }
+
+    &__asset {
+      grid-row: 1 / 2;
+    }
+
+    &__copy {
+      grid-row: 2 / 3;
+    }
+
+    @include from('extra-small') {
+      padding-top: 16vh;
+    }
+
+    @include from('medium') {
+      padding-top: 19vh;
+    }
+
+    @include from('large') {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0;
+
+      .container {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      &__asset {
+        grid-column: 2 / 3;
+        grid-row: 1 / -1;
+      }
+
+      &__copy {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+</style>
