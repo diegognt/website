@@ -2,18 +2,20 @@
   @use '../styles/mixins/breakpoints' as *;
 
   .container {
-    margin: 0 1rem;
+    padding: 0 1rem;
+    width: 100vw;
 
     @include from('medium') {
-      margin: 0 2rem;
+      padding: 0 2rem;
     }
 
     @include from('large') {
-      margin: 0 5rem;
+      padding: 0 5rem;
     }
 
     @include from('extra-extra-large') {
       margin: 0 auto;
+      padding: 0;
       width: 85rem;
     }
   }
