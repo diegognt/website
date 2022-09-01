@@ -21,10 +21,7 @@ const {data} = Astro.props as PageHead;
 <head>
   <meta charset="UTF-8" />
   <title>{data.metadata.title}</title>
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={data.metadata.description} />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
