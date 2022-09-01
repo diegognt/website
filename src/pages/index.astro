@@ -12,6 +12,35 @@ const data: Page = {
       canonical: '',
     },
   },
+  footer: {
+    navigationItems: [
+      {
+        type: 'Primary',
+        label: 'Github profile',
+        link: {path: ''},
+        asset: {
+          type: 'Icon',
+          alternativeText: 'Github icon',
+          sources: [{path: 'github', width: 18}],
+        },
+      },
+      {
+        type: 'Primary',
+        label: 'Linkedin profile',
+        link: {path: ''},
+        asset: {
+          type: 'Icon',
+          alternativeText: 'Linkedin logo',
+          sources: [{path: 'linkedin', width: 18}],
+        },
+      },
+      {
+        type: 'Secondary',
+        label: 'hello@diegognt.dev',
+        link: {path: 'mailto:hello@diegognt.dev'},
+      },
+    ],
+  },
   sections: [
     {
       components: [
@@ -54,4 +83,4 @@ const data: Page = {
 };
 ---
 
-<Base head={data.head} sections={data.sections} />
+<Base head={data.head} sections={data.sections} footer={data.footer} />
