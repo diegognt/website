@@ -12,7 +12,7 @@
 html {
   background-color: var(--white);
   color: var(--black);
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family);
   font-size: 16px;
 }
 
@@ -30,15 +30,6 @@ footer,
 nav,
 section {
   display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
 }
 
 p {
