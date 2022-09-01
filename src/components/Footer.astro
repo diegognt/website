@@ -1,0 +1,62 @@
+---
+import type {Footer, NavigationItem} from '../base/interfaces';
+
+const {navigationItems} = Astro.props as Footer;
+---
+
+<footer class="Footer container">
+  <nav class="Navigation Navigation--primary">
+    {
+      navigationItems.map(
+        (navigationItem: NavigationItem) =>
+          navigationItem.type === 'Primary' && (
+            <a href={navigationItem.link.path}>{navigationItem.label}</a>
+          )
+      )
+    }
+  </nav>
+  <nav class="Navigation Navigation--secondary">
+    {
+      navigationItems.map(
+        (navigationItem: NavigationItem) =>
+          navigationItem.type === 'Secondary' && (
+            <a href={navigationItem.link.path}>{navigationItem.label}</a>
+          )
+      )
+    }
+  </nav>
+</footer>
+
+<style lang="scss" is:global>
+  @use '../styles/mixins/breakpoints' as *;
+
+  :root {
+    --footer-height: 6rem;
+  }
+
+  @include from('extra-large') {
+    :root {
+      --footer-height: 8rem;
+    }
+  }
+</style>
+<style lang="scss">
+  @use '../styles/mixins/breakpoints' as *;
+
+  .Footer {
+    align-items: center;
+    display: grid;
+    font-size: var(--font-size-medium);
+    height: var(--footer-height);
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+
+    @include from('large') {
+      gap: 2rem;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
