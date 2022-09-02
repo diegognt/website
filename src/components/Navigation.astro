@@ -1,0 +1,24 @@
+---
+import type {Navigation, NavigationItem} from '../base/interfaces';
+
+const {navigationItems, type} = Astro.props as Navigation;
+const component = 'Navigation';
+---
+
+<nav class={`${component} ${component}--${type}`}>
+  {
+    navigationItems.map(
+      (navigationItem: NavigationItem) =>
+        navigationItem.type === type && (
+          <a href={navigationItem.link.path}>{navigationItem.label}</a>
+        )
+    )
+  }
+</nav>
+
+<style lang="scss">
+  .Navigation {
+    display: flex;
+    justify-content: space-evenly;
+  }
+</style>
