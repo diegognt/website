@@ -15,9 +15,9 @@ const component = config.component;
     </div>
     <div class={`${component}__asset`}>
       <Asset
-      type={data.asset.type}
-      sources={data.asset.sources}
-      alternativeText={data.asset.alternativeText}
+        type={data.asset.type}
+        sources={data.asset.sources}
+        alternativeText={data.asset.alternativeText}
       />
     </div>
   </div>
@@ -29,20 +29,20 @@ const component = config.component;
   .Hero {
     $this: &;
 
+    align-items: center;
     background-color: var(--white);
     color: var(--black);
-    height: 100vh;
+    display: flex;
+    height: calc(var(--viewport-height) - var(--footer-height));
+    justify-content: center;
     overflow: hidden;
-    padding-top: 14vh;
 
-    %horizontal-layout {
-    }
     .container {
       align-items: center;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, 1fr);
-      gap: 4rem;
+      gap: 0.5rem;
       justify-items: center;
     }
     .eyebrow {
@@ -78,18 +78,8 @@ const component = config.component;
       grid-row: 2 / 3;
     }
 
-    @include from('extra-small') {
-      padding-top: 16vh;
-    }
-
-    @include from('medium') {
-      padding-top: 19vh;
-    }
-
     @include from('large') {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
       padding-top: 0;
 
       .container {
