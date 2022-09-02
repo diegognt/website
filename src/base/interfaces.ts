@@ -4,7 +4,7 @@ export type AssetSource = {
   path: string;
   width: number;
   aspectRatio?: '1:1' | '3:4' | '4:3';
-  breakpoint: 'small' | 'medium' | 'large';
+  breakpoint?: 'small' | 'medium' | 'large';
 };
 
 export type ImageAsset = {
@@ -42,10 +42,32 @@ export type BaseData = {
   asset: Asset;
 };
 
+type Link = {
+  path: string;
+};
+
+type NavigationTypes = 'Primary' | 'Secondary';
+
+export type Navigation = {
+  type: NavigationTypes;
+  navigationItems: NavigationItem[];
+};
+
+export type NavigationItem = {
+  link: Link;
+  label: string;
+  type: NavigationTypes;
+};
+
+export type Footer = {
+  navigationItems: NavigationItem[];
+};
+
 export interface Page {
   head: {
     metadata: Object;
     links: Object;
   };
+  footer: Footer;
   sections: Section[];
 }
