@@ -1,5 +1,6 @@
 ---
 import type {Navigation, NavigationItem} from '../base/interfaces';
+import Anchor from './Anchor.astro';
 
 const {navigationItems, type} = Astro.props as Navigation;
 const component = 'Navigation';
@@ -10,15 +11,30 @@ const component = 'Navigation';
     navigationItems.map(
       (navigationItem: NavigationItem) =>
         navigationItem.type === type && (
-          <a href={navigationItem.link.path}>{navigationItem.label}</a>
+          <Anchor
+            label={navigationItem.label}
+            path={navigationItem.link.path}
+          />
         )
     )
   }
 </nav>
 
 <style lang="scss">
+  @use '../styles/mixins/breakpoints' as *;
+
   .Navigation {
     display: flex;
     justify-content: space-evenly;
+
+    &--Secondary {
+      padding-bottom: 0.8rem;
+    }
+
+    @include from('large') {
+      &--Secondary {
+        padding-bottom: 0;
+      }
+    }
   }
 </style>

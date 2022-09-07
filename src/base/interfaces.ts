@@ -53,6 +53,12 @@ export type Navigation = {
   navigationItems: NavigationItem[];
 };
 
+export type Anchor = {
+  path: string;
+  label: string;
+  icon?: Asset;
+};
+
 export type NavigationItem = {
   link: Link;
   label: string;

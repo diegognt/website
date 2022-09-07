@@ -1,0 +1,39 @@
+---
+import type {Anchor} from '../base/interfaces';
+
+const {label, path} = Astro.props as Anchor;
+const component = 'Anchor';
+const isExternalPathRegExp = new RegExp('^https?://', 'i');
+const type = isExternalPathRegExp.test(path) ? 'External' : 'Default';
+const anchorTagAttributes = {
+  target: isExternalPathRegExp.test(path) ? '_blank' : null,
+  rel: isExternalPathRegExp.test(path) ? 'noopener' : null,
+  'class:list': [component, `${component}--${type}`],
+  href: path,
+};
+---
+
+<a {...anchorTagAttributes}>{label}</a>
+
+<style lang="scss">
+  .Anchor {
+    $this: &;
+
+    color: var(--monochrome-2);
+    display: block;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-400);
+    line-height: var(--font-size-medium);
+    text-decoration: none;
+    transition: color .25s ease-in-out;
+
+    &[href^='mailto'] {
+      font-weight: var(--font-weight-600);
+    }
+
+    &:hover,
+    &:active {
+      color: var(--monochrome-6);
+    }
+  }
+</style>
