@@ -2,7 +2,9 @@
 import type {Asset} from '../../base/interfaces';
 import Image from './Image.astro';
 
-const {type, sources, alternativeText} = Astro.props as Asset;
+export type Props = Asset;
+
+const {type, sources, alternativeText} = Astro.props;
 ---
 
 {

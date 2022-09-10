@@ -53,16 +53,20 @@ export type Navigation = {
   navigationItems: NavigationItem[];
 };
 
+export type Icon = {
+  name: string
+}
 export type Anchor = {
   path: string;
   label: string;
-  icon?: Asset;
+  icon?: Icon;
 };
 
 export type NavigationItem = {
   link: Link;
   label: string;
   type: NavigationTypes;
+  icon?: Icon;
 };
 
 export type Footer = {
