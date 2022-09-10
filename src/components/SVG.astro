@@ -1,0 +1,26 @@
+---
+import fs from 'node:fs';
+
+let {svgs=[]} = Astro.props;
+
+svgs = [
+  'logo-linkedin',
+  'logo-github',
+  ...svgs
+];
+
+svgs = svgs.map((svg: string) => {
+  const path = new URL(`../assets/svg/${svg}.svg`, import.meta.url);
+  return fs.readFileSync(path, 'utf8');
+});
+---
+
+<svg class="SVG">
+  {svgs.map((svg: string) => (<Fragment set:html={svg} />))}
+</svg>
+
+<style>
+  .SVG {
+    display: none;
+  }
+</style>

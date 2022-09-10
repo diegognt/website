@@ -1,0 +1,24 @@
+---
+import type {Icon} from '../../base/interfaces';
+
+export type Props = Icon;
+
+const {name} = Astro.props;
+const component = 'SVGIcon';
+const classes = [component, `${component}--size-42`]
+---
+
+<svg class:list={classes} aria-hidden="true">
+  <use href={`#${name}`}></use>
+</svg>
+
+<style lang="scss">
+  .SVGIcon {
+    display: block;
+
+    &--size-42 {
+      height: 42px;
+      width: 42px;
+    }
+  }
+</style>

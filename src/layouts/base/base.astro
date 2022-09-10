@@ -3,6 +3,7 @@ import './style.scss';
 import Head from '../../components/Head.astro';
 import PageSection from '../commons/PageSection.astro';
 import Footer from '../../components/Footer.astro';
+import SVG from '../../components/SVG.astro';
 import type {Page, Section} from '../../base/interfaces';
 
 const {head, sections, footer} = Astro.props as Page;
@@ -21,5 +22,6 @@ const {head, sections, footer} = Astro.props as Page;
       }
     </main>
     <Footer navigationItems={footer.navigationItems} />
+    <SVG />
   </body>
 </html>

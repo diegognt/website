@@ -1,7 +1,10 @@
 ---
 import type {Anchor} from '../base/interfaces';
+import SVGIcon from './assets/SVGIcon.astro';
 
-const {label, path} = Astro.props as Anchor;
+export type Props = Anchor;
+
+const {label, icon, path} = Astro.props;
 const component = 'Anchor';
 const isExternalPathRegExp = new RegExp('^https?://', 'i');
 const type = isExternalPathRegExp.test(path) ? 'External' : 'Default';
@@ -13,7 +16,7 @@ const anchorTagAttributes = {
 };
 ---
 
-<a {...anchorTagAttributes}>{label}</a>
+<a {...anchorTagAttributes}>{icon ? <SVGIcon name={icon.name} /> : label}</a>
 
 <style lang="scss">
   .Anchor {
@@ -21,11 +24,12 @@ const anchorTagAttributes = {
 
     color: var(--monochrome-2);
     display: block;
+    fill: var(--monochrome-2);
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-400);
     line-height: var(--font-size-medium);
     text-decoration: none;
-    transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out, fill .25s ease-in-out;
 
     &[href^='mailto'] {
       font-weight: var(--font-weight-600);
@@ -34,6 +38,7 @@ const anchorTagAttributes = {
     &:hover,
     &:active {
       color: var(--monochrome-6);
+      fill: var(--monochrome-6);
     }
   }
 </style>
